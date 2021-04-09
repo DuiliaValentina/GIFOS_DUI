@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/dc66d71582.js" crossorigin="anonymous"></script>
+    <title>GIFOS</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="line">
+
+        </div>
+
+        <div class="logo">
+            <img src="assets/logo-desktop.svg" alt="logo-gifos">
+        </div>
+        <nav class="navigation">
+            <div class="menu">
+                <input type="checkbox" id="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul>
+                    <li><a href="#nocturno">MODO NOCTURNO</a>
+                        <hr>
+                    </li>
+                    <li><a href="#favoritos">FAVORITOS</a>
+                        <hr>
+                    </li>
+                    <li><a href="#gifos">MIS GIFOS</a>
+                        <hr>
+                    </li>
+                    <li class="img-plus">
+                        <a href="#createGifo"><img src="assets/button-crear-gifo.svg" alt="imagen-mas"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="container1" id="container1">
+            <h1>
+                <span>Inspírate, busca, guarda, y crea</span>
+                <br> los mejores <span class="colgif">GIFOS</span>
+            </h1>
+            <div class="img-wlc">
+                <img src="assets/ilustra_header.svg" alt="imagen-bienvenida">
+            </div>
+            <input onkeypress="searchBar(event)" list="suggestList" type="text" id="searchText" class="searchText" placeholder="Busca GIFOS y más">
+            <datalist id="suggestList" class="suggList"><img src="assets/icon-search-grey.svg" alt="lupa"></datalist>
+            <section class="trendingTxt" id="trendingTxt">
+                <h4>
+                    Trending:
+                </h4>
+            </section>
+        </section>
+        <section class="container2" id="container2">
+            <h4 id="searchResults">
+            </h4>
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
