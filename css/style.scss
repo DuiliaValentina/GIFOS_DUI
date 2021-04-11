@@ -122,9 +122,20 @@ main {
             cursor: pointer;
         }
     }
+    .wordsSearchResult {
+        h4 {
+            text-align: center;
+            color: #572EE5;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 35px;
+            margin-top: 5%;
+            margin-bottom: 0%;
+            text-transform: capitalize;
+        }
+    }
     .container2 {
         max-width: 1440px;
-        margin: 8%;
+        margin: 3% 8% 3%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -134,14 +145,13 @@ main {
             width: 260px;
             margin: 10px;
         }
-        h4 {
-            text-align: center;
-            color: #572EE5;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 35px;
-            margin-top: 15px;
-            margin-bottom: 15px;
-            text-transform: capitalize;
+    }
+    .container2noRes {
+        margin: auto;
+        img {
+            align-items: center;
+            width: 150px;
+            height: 150px;
         }
     }
 }

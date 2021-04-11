@@ -134,9 +134,19 @@ main .trendingTxt a:hover {
   cursor: pointer;
 }
 
+main .wordsSearchResult h4 {
+  text-align: center;
+  color: #572EE5;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  margin-top: 5%;
+  margin-bottom: 0%;
+  text-transform: capitalize;
+}
+
 main .container2 {
   max-width: 1440px;
-  margin: 8%;
+  margin: 3% 8% 3%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -156,13 +166,15 @@ main .container2 img {
   margin: 10px;
 }
 
-main .container2 h4 {
-  text-align: center;
-  color: #572EE5;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 35px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  text-transform: capitalize;
+main .container2noRes {
+  margin: auto;
+}
+
+main .container2noRes img {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 150px;
+  height: 150px;
 }
 /*# sourceMappingURL=style.css.map */
