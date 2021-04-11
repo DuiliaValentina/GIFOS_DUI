@@ -4,7 +4,6 @@ var giphyApiParameters = '&rating=&lang=en';
 
 function searchBar(event) {
     var searchText = document.getElementById('searchText').value;
-    console.log(searchText)
     if (event.charCode == 13) {
         var urlFull = giphyApiUrl + '/search?api_key=' + giphyApiKey + '&q=' + searchText
         getSearchApi(searchText);
@@ -14,9 +13,20 @@ function searchBar(event) {
     fetch(suggestWord)
         .then((resp) => resp.json())
         .then(function(response) {
-            console.log(response)
             printSuggest(response['data']);
         })
+}
+
+function printWordSearch(wordsSearch) {
+    var lastTwo = wordsSearch.substr(wordsSearch.length - 2);
+    console.log(lastTwo)
+    if (lastTwo == ", ") {
+        wordsSearch = wordsSearch.replace(', ', '')
+    }
+    var searchRes = document.getElementById('wordSearch');
+    searchRes.textContent = wordsSearch;
+    var input = document.getElementById('searchText');
+    input.value = wordsSearch;
 }
 
 /*Función para no repetir funciones*/
@@ -25,34 +35,33 @@ function getSearchApi(searchText) {
     fetch(urlFull)
         .then((resp) => resp.json())
         .then(function(response) {
-            console.log(response)
             var container2 = document.getElementById('container2');
             var children = container2.childNodes;
-            console.log(children.length)
+            printWordSearch(searchText);
             if (children.length > 3) {
                 updateGifs(response['data']);
-                console.log("hijos")
+            } else if (response['data'].length == 0) {
+                printNoResults();
             } else {
                 printGifs(response['data']);
-                console.log("no hijos")
             }
         })
 }
 
-function searchResult() {
-    var searchRes = document.getElementById('searchResults');
-    var input = document.getElementById('searchText');
-    document.getElementById('Input').readOnly = true;
-    document.getElementById("GFG_down").innerHTML = "Read-Only attribute enabled";
-
+function printNoResults(resultNone) {
+    /*document.getElementById('container2').classList.add('container2noRes')*/
+    document.getElementById('container2').className = "container2noRes";
+    var imgNoRes = document.createElement("img");
+    imgNoRes.src = "assets/icon-busqueda-sin-resultado.svg";
+    document.getElementById('container2').appendChild(imgNoRes);
 }
+
 
 window.onload = function trendingParg(trendingWord) {
     var trendingUrl = 'https://api.giphy.com/v1' + '/trending/searches?api_key=' + giphyApiKey
     fetch(trendingUrl)
         .then((resp) => resp.json())
         .then(function(response) {
-            console.log(response)
             printTrending(response['data']);
         })
 }
@@ -84,7 +93,6 @@ function printGifs(gifs) {
         var img = document.createElement('img');
         img.src = gifs[i]['images']['downsized']['url'];
         /*img.classList.add('containerImg');*/
-        console.log(img.className)
         document.getElementById('container2').appendChild(img);
     }
 }
