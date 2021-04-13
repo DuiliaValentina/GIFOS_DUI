@@ -120,14 +120,7 @@ function printGifs(gifs) {
         img.setAttribute("name", "imgGif");
         //img.tagName = "imgGif";
         /*img.classList.add('containerImg');*/
-
-        let divImg = document.createElement('div');
-        divImg.id = "overlayGif";
-        divImg.className = "overlayGif";
-        divImg.appendChild(img);
-
-        document.getElementById('container2').appendChild(divImg);
-
+        document.getElementById('container2').appendChild(img);
     }
 }
 

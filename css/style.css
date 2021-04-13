@@ -80,6 +80,7 @@ header .navigation .menu ul:hover {
 main .container1 {
   width: 100%;
   text-align: center;
+  line-height: 0;
 }
 
 main .container1 h1 {
@@ -92,7 +93,7 @@ main .container1 h1 {
 }
 
 main .container1 .colgif {
-  color: aqua;
+  color: #50E3C2;
 }
 
 main .container1 .img-wlc {
@@ -130,7 +131,7 @@ main .trendingTxt h4 {
 }
 
 main .trendingTxt a:hover {
-  color: aqua;
+  color: #50E3C2;
   cursor: pointer;
 }
 
@@ -155,6 +156,20 @@ main .container2 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  /* .overlayGif {
+            margin: 3% 8% 3%;
+            display: flex;
+            height: 200px;
+            width: 260px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background: rgba(87, 46, 229, 0.6);
+            transition: .5s ease;
+        }*/
+}
+
+main .container2:hover .overlayGif {
+  background-color: rgba(87, 46, 229, 0.6);
 }
 
 main .container2 img {
@@ -171,10 +186,23 @@ main .container2noRes {
 }
 
 main .container2noRes img {
+  padding-top: 5%;
+  display: block;
+  margin: auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   width: 150px;
   height: 150px;
+}
+
+main .container2noRes h3 {
+  text-align: center;
+  color: #50E3C2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  margin-top: 5%;
+  margin-bottom: 0%;
+  text-transform: capitalize;
 }
 /*# sourceMappingURL=style.css.map */

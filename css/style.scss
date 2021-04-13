@@ -3,7 +3,7 @@ $bg-light: white;
 $bg-dark-grey:#222326;
 $bg-dark: #37383C;
 $color-text: #572EE5;
-$color-aqua: aqua;
+$color-aqua: #50E3C2;
 * {
     margin: 0;
     padding: 0;
@@ -77,6 +77,7 @@ main {
     .container1 {
         width: 100%;
         text-align: center;
+        line-height: 0;
         h1 {
             margin-top: 10%;
             font-family: 'Montserrat', sans-serif;
@@ -86,7 +87,7 @@ main {
             line-height: 50px;
         }
         .colgif {
-            color: aqua;
+            color: $color-aqua;
         }
         .img-wlc {
             margin: 0%;
@@ -125,7 +126,7 @@ main {
     .wordsSearchResult {
         h4 {
             text-align: center;
-            color: #572EE5;
+            color: $color-text;
             font-family: 'Montserrat', sans-serif;
             font-size: 35px;
             margin-top: 5%;
@@ -139,6 +140,19 @@ main {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        &:hover .overlayGif {
+            background-color: rgba(87, 46, 229, 0.6);
+        }
+        /* .overlayGif {
+            margin: 3% 8% 3%;
+            display: flex;
+            height: 200px;
+            width: 260px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background: rgba(87, 46, 229, 0.6);
+            transition: .5s ease;
+        }*/
         img {
             flex: none;
             height: 200px;
@@ -149,9 +163,21 @@ main {
     .container2noRes {
         margin: auto;
         img {
+            padding-top: 5%;
+            display: block;
+            margin: auto;
             align-items: center;
             width: 150px;
             height: 150px;
+        }
+        h3 {
+            text-align: center;
+            color: $color-aqua;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            margin-top: 5%;
+            margin-bottom: 0%;
+            text-transform: capitalize;
         }
     }
 }
