@@ -145,8 +145,10 @@ function printSuggest(suggWord) {
         list.removeChild(list.firstChild);
     };
     suggWord.forEach(item => {
-        var option = document.createElement('option');
+        var option = document.createElement('li');
         option.value = item['name'];
         list.appendChild(option);
     });
 }
+
+/*<img id="img-sug" src="assets/icon-search-grey.svg" alt="lupa"></img>*/

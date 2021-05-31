@@ -4,6 +4,7 @@ $bg-dark-grey:#222326;
 $bg-dark: #37383C;
 $color-text: #572EE5;
 $color-aqua: #50E3C2;
+$bg-carrusel: #F3F5F8;
 * {
     margin: 0;
     padding: 0;
@@ -103,8 +104,29 @@ main {
             background-position-x: 96%;
             background-position-y: 50%;
         }
+        .suggestList {
+            margin-left: 20px;
+            border: none;
+            font-family: "Roboto", sans-serif;
+            color: #9CAFC3;
+            font-size: 16px;
+            text-align: left;
+            line-height: 19px;
+            font-weight: 300;
+            cursor: pointer;
+            background: url(../assets/icon-search-gris.svg) no-repeat scroll 7px 7px;
+        }
         .searchText:focus {
             outline: none;
+        }
+        .input[list] {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 500px;
+            background: #D2E9FF;
+            padding: 20px 20px 20px 20px;
+            font: 12px Arial, Helvetica, sans-serif;
+            color: #666;
         }
     }
     .trendingTxt {
@@ -135,29 +157,129 @@ main {
         }
     }
     .container2 {
+        background-color: $bg-light;
         max-width: 1440px;
         margin: 3% 8% 3%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        &:hover .overlayGif {
-            background-color: rgba(87, 46, 229, 0.6);
-        }
-        /* .overlayGif {
-            margin: 3% 8% 3%;
-            display: flex;
-            height: 200px;
-            width: 260px;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            background: rgba(87, 46, 229, 0.6);
+        .overlayGif {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
             transition: .5s ease;
-        }*/
+            background-color: $color-text;
+            &:hover {
+                opacity: 1;
+            }
+            .htmlTitulo {
+                line-height: 20px;
+                text-align: left;
+                font-family: 'Roboto-Bold', sans-serif;
+                font-weight: bold;
+                font-size: 16px;
+                color: white;
+                position: relative;
+                margin: 10px;
+                top: 80%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+            .htmlUsuario {
+                font-family: 'Roboto', sans-serif;
+                font-size: 15px;
+                color: #FFFFFF;
+                margin: 10px;
+                position: relative;
+                top: 20%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: left;
+            }
+        }
+        .divGifCont {
+            position: relative;
+            margin: 10px;
+            line-height: 0;
+            .fav-button {
+                height: 32px;
+                width: 32px;
+                background-repeat: no-repeat;
+                border: none;
+                background-position: .50% 50%;
+                background-image: url(../assets/icon-fav.svg);
+                margin-right: 10px;
+                margin-top: 6px;
+                float: right;
+                border-radius: 6px;
+                outline: none;
+                &:hover {
+                    background-image: url(../assets/icon-fav-hover.svg);
+                    cursor: pointer;
+                    border-radius: 6px;
+                }
+            }
+            .fav-button-selected {
+                background-image: url(../assets/icon-fav-active.svg);
+                float: right;
+                padding-right: 10px;
+                padding-top: 6px;
+                cursor: pointer;
+                outline: none;
+            }
+            .download-button {
+                background-image: url(../assets/icon-download.svg);
+                float: right;
+                height: 32px;
+                width: 32px;
+                background-repeat: no-repeat;
+                border: none;
+                background-position: .50% 50%;
+                margin-right: 10px;
+                margin-top: 6px;
+                border-radius: 6px;
+                outline: none;
+                &:hover {
+                    background-image: url(../assets/icon-download-hover.svg);
+                    cursor: pointer;
+                    border-radius: 6px;
+                }
+            }
+            .max-button {
+                background-image: url(../assets/icon-max-normal.svg);
+                float: right;
+                height: 32px;
+                width: 32px;
+                background-repeat: no-repeat;
+                border: none;
+                background-position: .50% 50%;
+                margin-right: 10px;
+                margin-top: 6px;
+                border-radius: 6px;
+                outline: none;
+                &:hover {
+                    background-image: url(../assets/icon-max-hover.svg);
+                    cursor: pointer;
+                    border-radius: 6px;
+                }
+            }
+            &:hover .overlayGif {
+                background: rgba(87, 46, 229, 0.6);
+            }
+        }
         img {
             flex: none;
             height: 200px;
             width: 260px;
-            margin: 10px;
         }
     }
     .container2noRes {
@@ -179,5 +301,29 @@ main {
             margin-bottom: 0%;
             text-transform: capitalize;
         }
+    }
+    .containerFav {
+        .favTitle {
+            margin-top: 8%;
+            text-align: center;
+            h2 {
+                margin-top: 1%;
+                font-family: 'Montserrat', sans-serif;
+                color: $color-text;
+            }
+        }
+        .noFavDiv {
+            margin-top: 10%;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            color: $color-aqua;
+            text-align: center;
+            line-height: 25px;
+        }
+    }
+    .carrusel {
+        width: 100%;
+        height: 640px;
+        background-color: #F3F5F8;
     }
 }

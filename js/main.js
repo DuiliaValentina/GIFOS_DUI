@@ -1,6 +1,8 @@
 var giphyApiUrl = 'https://api.giphy.com/v1/gifs';
 var giphyApiKey = 'bnQuOLQVdCVPkdz1sXdeUdSmUpcEz5lg';
 var giphyApiParameters = '&rating=&lang=en';
+//arrreglo vacío
+var totalGifs = [];
 
 function searchBar(event) {
     var searchText = document.getElementById('searchText').value;
@@ -107,41 +109,123 @@ function prepareGifsList() {
         document.getElementById('txtResultNone').remove();
         document.getElementById('container2').className = "container2";
     } catch (error) {
-
+        console.log(error)
     }
 
 }
+
 
 function printGifs(gifs) {
     prepareGifsList();
     for (let i = 0; i < 12; i++) {
         var img = document.createElement('img');
         img.src = gifs[i]['images']['downsized']['url'];
-        img.setAttribute("name", "imgGif");
+        img.id = "imgGif".concat(i);
+
+        totalGifs[i] = gifs[i];
+
         //img.tagName = "imgGif";
         /*img.classList.add('containerImg');*/
+        var divOverlay = document.createElement('div');
+        divOverlay.className = "overlayGif";
 
-        let divImg = document.createElement('div');
-        divImg.id = "overlayGif";
-        divImg.className = "overlayGif";
+        var maxButton = document.createElement("button");
+        maxButton.className = "max-button";
+        maxButton.id = "max-button";
+
+        var downButton = document.createElement("button");
+        downButton.className = "download-button";
+        downButton.id = "down-button";
+        downButton.onclick = function() {
+            (async() => {
+                let a = document.createElement('a');
+                let response = await fetch(gifs[i]['images']['downsized']['url']);
+                let file = await response.blob();
+                a.download = gifs[i]['title'];
+                a.href = window.URL.createObjectURL(file);
+                a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+                a.click();
+            })();
+        }
+
+        var favButton = document.createElement("button");
+        favButton.className = "fav-button";
+        favButton.id = "fav-button";
+        favButton.onclick = function() {
+            saveFavGifs(i)
+        }
+
+        var descriptionImg = document.createElement('div');
+        descriptionImg.className = "descriptionImg";
+
+        let htmlTitulo = document.createElement('p');
+        htmlTitulo.id = "tituloGif".concat(i);
+        let htmlTitulo1 = gifs[i]['title'];
+        htmlTitulo.className = "htmlTitulo";
+        htmlTitulo.textContent = htmlTitulo1;
+
+        let htmlUsuario = document.createElement('p');
+        htmlUsuario.id = "usuarioGif".concat(i);
+        let htmlUsuario1 = gifs[i]['username'];
+        htmlUsuario.textContent = htmlUsuario1;
+        htmlUsuario.className = "htmlUsuario";
+
+
+        var divImg = document.createElement('div');
+        divImg.id = "divGifCont";
+        divImg.className = "divGifCont";
+
+
+        divImg.appendChild(divOverlay);
         divImg.appendChild(img);
+        divOverlay.appendChild(descriptionImg);
+        divOverlay.appendChild(maxButton);
+        divOverlay.appendChild(downButton);
+        divOverlay.appendChild(favButton);
+        divOverlay.appendChild(htmlTitulo);
+        divOverlay.appendChild(htmlUsuario);
 
         document.getElementById('container2').appendChild(divImg);
-
     }
+}
+
+function saveFavGifs(indexGifArray) {
+    // En el localStorage siempre se guardan los datos como cadenas de caracteres.
+    var saveGifsFav = localStorage.getItem('gifsFav');
+    console.log(saveGifsFav)
+    if (saveGifsFav === null) {
+        saveGifsFav = [];
+    } else {
+        // JSON.parse => Convertir cadenas de caracteres a arreglos.
+        saveGifsFav = JSON.parse(saveGifsFav);
+        // Despues de que ya sea arreglo, añadimos el GIF a favoritos.
+    }
+    saveGifsFav.push(totalGifs[indexGifArray])
+        // JSON.strinfigy => Convertir arreglos a cadenas de caracteres.
+    localStorage.setItem('gifsFav', JSON.stringify(saveGifsFav));
+}
+
+function printFavGif() {
+    var favoriteGifs = localStorage.getItem('gifsFav').JSON.parse();
+
+
+
+
 }
 
 function updateGifs(printGifs) {
     prepareGifsList();
-    var container2 = document.getElementById('container2');
-    //print no results option a 
-    if (container2.hasChildNodes()) {
-        var children = container2.childNodes;
 
-        for (let i = 0; i < children.length; i++) {
-            var child = children[i];
-            child.src = printGifs[i]['images']['downsized']['url'];
-        }
+    for (let i = 11; i >= 0; i--) {
+
+        let imgGifId = document.getElementById('imgGif'.concat(i));
+        let titGifId = document.getElementById('tituloGif'.concat(i));
+        let userGifId = document.getElementById('usuarioGif'.concat(i));
+        imgGifId.src = printGifs[i]['images']['downsized']['url'];
+        titGifId.textContent = printGifs[i]['title'];
+        userGifId.textContent = printGifs[i]['username'];
+
+        totalGifs[i] = printGifs[i];
 
     }
 }
@@ -152,8 +236,9 @@ function printSuggest(suggWord) {
         list.removeChild(list.firstChild);
     };
     suggWord.forEach(item => {
-        var option = document.createElement('option');
-        option.value = item['name'];
+        var option = document.createElement('li');
+        console.log(option)
+        option.values = item['name'];
         list.appendChild(option);
     });
 }

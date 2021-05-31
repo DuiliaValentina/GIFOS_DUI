@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dc66d71582.js" crossorigin="anonymous"></script>
-    <title>GIFOS</title>
+    <title>Favoritos</title>
 </head>
 
 <body>
@@ -44,31 +44,22 @@
         </nav>
     </header>
     <main>
-        <section class="container1" id="container1">
-            <h1>
-                <span>Inspírate, busca, guarda, y crea</span>
-                <br> los mejores <span class="colgif">GIFOS</span>
-            </h1>
-            <div class="img-wlc">
-                <img src="assets/ilustra_header.svg" alt="imagen-bienvenida">
+        <section id="containerFav" class="containerFav">
+            <div id="favTitle" class="favTitle">
+                <img src="assets/icon-favoritos.svg" alt="logo-favoritos">
+                <h2>Favoritos</h2>
             </div>
-            <input onkeypress="searchBar(event)" type="text" id="searchText" class="searchText" placeholder="Busca GIFOS y más">
-            <ul id="suggestList" class="suggestList"></ul>
-            <section class="trendingTxt" id="trendingTxt">
-                <h4>
-                    Trending:
-                </h4>
-            </section>
+            <div id="noFavDiv" class="noFavDiv">
+                <img src="assets/icon-fav-sin-contenido.svg" alt="sin-favoritos">
+                <br>
+                <span id="noFavText" class="noResultsText">
+                    "¡Guarda tu primer GIFO en Favoritos
+                    <br>
+                    para que se muestre aquí!"
+                </span>
+            </div>
         </section>
-        <section id="wordsSearchResult" class="wordsSearchResult">
-            <h4 id="wordSearch">
-            </h4>
-        </section>
-        <section class="container2" id="container2">
-        </section>
-        <section class="carrusel" id="carrusel">
 
-        </section>
 
     </main>
 
