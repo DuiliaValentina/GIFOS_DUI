@@ -3,20 +3,27 @@ var giphyApiKey = 'bnQuOLQVdCVPkdz1sXdeUdSmUpcEz5lg';
 var giphyApiParameters = '&rating=&lang=en';
 //arrreglo vacío
 var totalGifs = [];
+var slideIndex = 1;
 
 function searchBar(event) {
     var searchText = document.getElementById('searchText').value;
     if (event.charCode == 13) {
         var urlFull = giphyApiUrl + '/search?api_key=' + giphyApiKey + '&q=' + searchText
+        console.log(urlFull)
         getSearchApi(searchText);
+        prepareSuggs();
 
+    } else {
+        var suggestWord = giphyApiUrl + '/search/tags?api_key=' + giphyApiKey + '&q=' + searchText + '&limit=5'
+        console.log(suggestWord)
+        fetch(suggestWord)
+            .then((resp) => resp.json())
+            .then(function(response) {
+                console.log(response)
+                printSuggest(response['data']);
+            })
     }
-    var suggestWord = giphyApiUrl + '/search/tags?api_key=' + giphyApiKey + '&q=' + searchText + '&limit=5'
-    fetch(suggestWord)
-        .then((resp) => resp.json())
-        .then(function(response) {
-            printSuggest(response['data']);
-        })
+
 }
 
 function printWordSearch(wordsSearch) {
@@ -114,7 +121,6 @@ function prepareGifsList() {
 
 }
 
-
 function printGifs(gifs) {
     prepareGifsList();
     for (let i = 0; i < 12; i++) {
@@ -207,10 +213,6 @@ function saveFavGifs(indexGifArray) {
 
 function printFavGif() {
     var favoriteGifs = localStorage.getItem('gifsFav').JSON.parse();
-
-
-
-
 }
 
 function updateGifs(printGifs) {
@@ -230,15 +232,107 @@ function updateGifs(printGifs) {
     }
 }
 
-function printSuggest(suggWord) {
+/* function printSuggest(suggWord) {
     var list = document.getElementById('suggestList');
     while (list.hasChildNodes()) {
         list.removeChild(list.firstChild);
     };
     suggWord.forEach(item => {
-        var option = document.createElement('li');
+        var option = document.createElement('a');
         console.log(option)
         option.values = item['name'];
         list.appendChild(option);
     });
+} */
+
+function printSuggest(pData) {
+    prepareSuggs();
+    let listSug = document.createElement("div");
+    listSug.id = 'listSug';
+    listSug.className = 'listSug';
+    for (let i = 0; i < pData.length; i++) {
+        let listWordSug = document.createElement('div')
+        listWordSug.id = "listWordSug";
+        listWordSug.className = "listWordSug"
+        listWordSug.innerHTML += pData[i]['name'];
+        listWordSug.innerHTML += "<input type='hidden' value='" + pData[i]['name'] + "'>";
+        listWordSug.addEventListener("click", function(event) {
+            searchText.value = this.getElementsByTagName("input")[0].value;
+        });
+
+        listSug.appendChild(listWordSug);
+
+    }
+    let divInp = document.getElementById('divInput');
+    divInp.appendChild(listSug);
+}
+
+function prepareSuggs() {
+    try {
+        document.getElementById('listSug').remove();
+        document.getElementById('listWordSug').remove();
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+showSlides(slideIndex);
+fillSlides();
+
+function fillSlides() {
+    var trendingUrl = 'https://api.giphy.com/v1/gifs/trending?' + 'api_key=' + giphyApiKey + '&limit=9&offset=0' + giphyApiParameters
+    console.log(trendingUrl)
+    fetch(trendingUrl)
+        .then((resp) => resp.json())
+        .then(function(response) {
+            var images = document.getElementsByClassName("trendingImg");
+            for (i = 0; i < images.length; i++) {
+                console.log(response)
+                images[i].src = response['data'][i]['images']['downsized']['url'];
+                console.log(response)
+            }
+
+        })
+
+}
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "block";
+}
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function creategifo(params) {
+    let btnStart = document.getElementById("comenzar");
+    let btnRecorder = document.getElementById("grabar");
+    let btnEnd = document.getElementById('finalizar');
+    let btnSubmit = document.getElementById('subir')
+
+}
+
+function hideBtn() {
+    document.getElementById('comenzar').style.display = 'none';
+    document.getElementById('texto1').innerHTML = "¿Nos das acceso" + "<br />" + "a tu cámara?";
+    document.getElementById('texto2').innerHTML = "El acceso a tu camara será válido sólo" + " <br / > " + "por el tiempo en el que estés creando el GIFO.";
+    document.getElementById('num1').className = "num1";
+
+}
+
+function grabarBtn() {
+
+
 }

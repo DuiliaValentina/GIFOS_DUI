@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dc66d71582.js" crossorigin="anonymous"></script>
-    <title>GIFOS</title>
+    <title>Favoritos</title>
 </head>
 
 <body>
@@ -44,28 +44,19 @@
         </nav>
     </header>
     <main>
-        <section class="container1" id="container1">
-            <h1>
-                <span>Inspírate, busca, guarda, y crea</span>
-                <br> los mejores <span class="colgif">GIFOS</span>
-            </h1>
-            <div class="img-wlc">
-                <img src="assets/ilustra_header.svg" alt="imagen-bienvenida">
+        <section id="containerMisGif" class="containerMisGif">
+            <div id="misGifTitle" class="misGifTitle">
+                <img src="assets/icon-mis-gifos.svg" alt="logo-mis-gifs">
+                <h2>Mis GIFOS</h2>
             </div>
-            <div id="divInput" class="divInput">
-                <input onkeypress="searchBar(event)" type="text" id="searchText" class="searchText" placeholder="Busca GIFOS y más">
+            <div id="noMisGifDiv" class="noMisGifDiv">
+                <img src="assets/icon-mis-gifos-sin-contenido.svg" alt="sin-mis-gifos">
+                <br>
+                <span id="noMisGifText" class="noMisGifText">
+                    ¡Anímate a crear tu primer GIFO!
+                </span>
+                <br>
             </div>
-            <section class="trendingTxt" id="trendingTxt">
-                <h4>
-                    Trending:
-                </h4>
-            </section>
-        </section>
-        <section id="wordsSearchResult" class="wordsSearchResult">
-            <h4 id="wordSearch">
-            </h4>
-        </section>
-        <section class="container2" id="container2">
         </section>
         <section class="carrusel" id="carrusel">
             <h3>
@@ -136,6 +127,8 @@
         </section>
         <div class="line-bottom"></div>
     </footer>
+
+
 
     <script src="js/main.js"></script>
 

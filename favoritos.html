@@ -33,11 +33,11 @@
                     <li><a href="favoritos.html">FAVORITOS</a>
                         <hr>
                     </li>
-                    <li><a href="#gifos">MIS GIFOS</a>
+                    <li><a href="misgifos.html">MIS GIFOS</a>
                         <hr>
                     </li>
                     <li class="img-plus">
-                        <a href="#createGifo"><img src="assets/button-crear-gifo.svg" alt="imagen-mas"></a>
+                        <a href="crear-gifo.html"><img src="assets/button-crear-gifo.svg" alt="imagen-mas"></a>
                     </li>
                 </ul>
             </div>
@@ -57,15 +57,81 @@
                     <br>
                     para que se muestre aquí!"
                 </span>
+                <br>
             </div>
         </section>
+        <br>
+        <section class="carrusel" id="carrusel">
+            <h3>
+                Trending GIFOS
+            </h3>
+            <h5>
+                Mira los últimos GIFOS de nuestra comunidad.
+            </h5>
+            <div class="slideshow-container">
+                <button class="btn-carrusel" onclick="plusSlides(-1)">
+                    <img class="prev-button" alt="imagen-carrusel">
+                </button>
+
+                <div class="mySlides fade">
+                    <img class="trendingImg" src="#">
+                    <img class="trendingImg" src="#">
+                    <img class="trendingImg" src="#">
+                </div>
+
+                <div class="mySlides fade">
+                    <img class="trendingImg" src="#">
+                    <img class="trendingImg" src="#">
+                    <img class="trendingImg" src="#">
+                </div>
+
+                <div class="mySlides fade">
+                    <img class="trendingImg" src="#">
+                    <img class="trendingImg" src="#">
+                    <img class="trendingImg" src="#">
+                </div>
+
+                <button class="btn-carrusel" onclick="plusSlides(1)">
+                    <img class="next-button" alt="imagen-carrusel">
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section class="footer1">
+            <p>
+                Compartir en:
+            </p>
+            <ul>
+                <li>
+                    <a href='https://www.facebook.com/' target="_blank">
+                        <i class="fab fa-facebook-f">
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/home">
+                        <i class="fab fa-twitter">
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/">
+                        <i class="fab fa-instagram">
+                        </i>
+                    </a>
+                </li>
+            </ul>
+            <p>
+                © GIFOS 2020 All Rights Reserved.
+            </p>
+        </section>
+        <div class="line-bottom"></div>
+    </footer>
 
 
     </main>
 
-    <footer>
-
-    </footer>
 
     <script src="js/main.js"></script>
 

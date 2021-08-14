@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dc66d71582.js" crossorigin="anonymous"></script>
-    <title>GIFOS</title>
+    <title>Crear GIFO</title>
 </head>
 
 <body>
@@ -44,65 +44,60 @@
         </nav>
     </header>
     <main>
-        <section class="container1" id="container1">
-            <h1>
-                <span>Inspírate, busca, guarda, y crea</span>
-                <br> los mejores <span class="colgif">GIFOS</span>
-            </h1>
-            <div class="img-wlc">
-                <img src="assets/ilustra_header.svg" alt="imagen-bienvenida">
+        <section id="createGif" class="createGif">
+            <div id="camaraDiv" class="camaraDiv">
+                <img src="../assets/camara.svg" alt="Grabadora" class="grab" id="grab">
+                <img src="../assets/element-luz-camara.svg" alt="Grabadora" class="luzGrab" id="luzGrab">
             </div>
-            <div id="divInput" class="divInput">
-                <input onkeypress="searchBar(event)" type="text" id="searchText" class="searchText" placeholder="Busca GIFOS y más">
+            <div id="cajaCont" class="cajaCont">
+                <div id="bordesCaja" class="bordesCaja">
+                    <div class="borde1"></div>
+                    <div class="borde2"></div>
+                    <div class="borde3"></div>
+                    <div class="borde4"></div>
+                    <div class="contGrab" id="contGrab">
+                        <h3 id="texto1">
+                            Aquí podrás <br> crear tus propios <span class="gifos-aqua">GIFOS</span>
+                        </h3>
+                        <h5 id="texto2">
+                            ¡Crea tu GIFO en sólo 3 pasos!
+                            <br>(sólo necesitas una cámara para grabar un video)
+                        </h5>
+                    </div>
+                </div>
             </div>
-            <section class="trendingTxt" id="trendingTxt">
+        </section>
+        <section id="part2" class="part2">
+            <div id="numeros" class="numeros">
                 <h4>
-                    Trending:
+                    <span id="num1" class="num">1</span>
                 </h4>
-            </section>
-        </section>
-        <section id="wordsSearchResult" class="wordsSearchResult">
-            <h4 id="wordSearch">
-            </h4>
-        </section>
-        <section class="container2" id="container2">
-        </section>
-        <section class="carrusel" id="carrusel">
-            <h3>
-                Trending GIFOS
-            </h3>
-            <h5>
-                Mira los últimos GIFOS de nuestra comunidad.
-            </h5>
-            <div class="slideshow-container">
-                <button class="btn-carrusel" onclick="plusSlides(-1)">
-                    <img class="prev-button" alt="imagen-carrusel">
-                </button>
-
-                <div class="mySlides fade">
-                    <img class="trendingImg" src="#">
-                    <img class="trendingImg" src="#">
-                    <img class="trendingImg" src="#">
-                </div>
-
-                <div class="mySlides fade">
-                    <img class="trendingImg" src="#">
-                    <img class="trendingImg" src="#">
-                    <img class="trendingImg" src="#">
-                </div>
-
-                <div class="mySlides fade">
-                    <img class="trendingImg" src="#">
-                    <img class="trendingImg" src="#">
-                    <img class="trendingImg" src="#">
-                </div>
-
-                <button class="btn-carrusel" onclick="plusSlides(1)">
-                    <img class="next-button" alt="imagen-carrusel">
-                </button>
+                <h4>
+                    <span id="num2" class="num">2</span>
+                </h4>
+                <h4>
+                    <span id="num3" class="num">3</span>
+                </h4>
+            </div>
+            <div id="cinta-pel" class="cinta-pel">
+                <img src="./assets/pelicula.svg" id="cinta" class="cinta" alt="cinta">
             </div>
         </section>
-
+        <div class="line-num"></div>
+        <div class="botones-cam">
+            <button id="comenzar" class="boton1" onclick="hideBtn()">
+                COMENZAR
+            </button>
+            <button id="grabar" class="boton1" onclick="grabarBtn()">
+                GRABAR
+            </button>
+            <button id="finalizar" class="boton1" onclick="finalizarBtn()">
+                FINALIZAR
+            </button>
+            <button id="subir" class="boton1" onclick="subirBtn()">
+                SUBIR GIFO
+            </button>
+        </div>
 
     </main>
     <footer>
@@ -136,9 +131,6 @@
         </section>
         <div class="line-bottom"></div>
     </footer>
-
     <script src="js/main.js"></script>
-
-</body>
 
 </html>
