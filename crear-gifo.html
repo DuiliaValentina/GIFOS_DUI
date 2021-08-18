@@ -55,7 +55,10 @@
                     <div class="borde2"></div>
                     <div class="borde3"></div>
                     <div class="borde4"></div>
-                    <div class="contGrab" id="contGrab">
+                    <div id="contentVideo" style="display:none;">
+                        <video src="" id="video"></video>
+                    </div>
+                    <div class="contGrab" id="contentGrab">
                         <h3 id="texto1">
                             Aquí podrás <br> crear tus propios <span class="gifos-aqua">GIFOS</span>
                         </h3>
@@ -80,12 +83,12 @@
                 </h4>
             </div>
             <div id="cinta-pel" class="cinta-pel">
-                <img src="./assets/pelicula.svg" id="cinta" class="cinta" alt="cinta">
+                <img src="/assets/pelicula.svg" id="cinta" class="cinta" alt="cinta">
             </div>
         </section>
         <div class="line-num"></div>
         <div class="botones-cam">
-            <button id="comenzar" class="boton1" onclick="hideBtn()">
+            <button id="comenzar" class="boton1" onclick="requestCamera()">
                 COMENZAR
             </button>
             <button id="grabar" class="boton1" onclick="grabarBtn()">
@@ -131,6 +134,6 @@
         </section>
         <div class="line-bottom"></div>
     </footer>
-    <script src="js/main.js"></script>
+    <script src="js/crear-gifo.js"></script>
 
 </html>
