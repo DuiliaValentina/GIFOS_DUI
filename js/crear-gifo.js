@@ -19,7 +19,7 @@ function contador() {
     }
 }
 
-function creategifo(params) {
+function creategifo() {
     let btnStart = document.getElementById("comenzar");
     let btnRecorder = document.getElementById("grabar");
     let btnEnd = document.getElementById('finalizar');
@@ -113,8 +113,8 @@ function grabarBtn() {
     });
     recorder.startRecording();
     timer = setInterval(contador, 1000);
-    document.getElementById('grabar').style = "display: none"
-    document.getElementById('finalizar').style = "display: block"
+    document.getElementById('grabar').style = "display: none";
+    document.getElementById('finalizar').style = "display: block";
     document.getElementById('counter').style = "visibility:visible";
 }
 
@@ -149,6 +149,7 @@ function finalizarBtn() {
 function repCap() {
     document.getElementById("myGifo").style = "display:none";
     document.getElementById("video").style = "display:block";
+    document.getElementById('subir').style = "display:none";
     document.getElementById('repCapture').style = "visibility:hidden";
     grabarBtn();
 }

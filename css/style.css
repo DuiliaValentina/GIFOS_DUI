@@ -69,13 +69,19 @@ header .navigation .menu ul li a {
   text-decoration: none;
 }
 
+header .navigation .menu ul li a .txtFav {
+  color: black;
+}
+
+header .navigation .menu ul li a:hover {
+  background: unset;
+  -webkit-text-decoration: underline aqua;
+          text-decoration: underline aqua;
+}
+
 header .navigation .menu ul li hr {
   clear: both;
   visibility: hidden;
-}
-
-header .navigation .menu ul:hover {
-  background: unset;
 }
 
 main .container1 {
@@ -758,7 +764,7 @@ main .carrusel .slideshow-container .next-button {
 }
 
 main .carrusel .slideshow-container .next-button:hover {
-  content: url(../assets/Button-Slider-right-hover.svg);
+  content: url(../assets/but);
 }
 
 main .carrusel .slideshow-container .mySlides .trendingImg {

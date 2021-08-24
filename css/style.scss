@@ -60,15 +60,19 @@ header {
                         padding: unset;
                         color: $color-text;
                         line-height: unset;
-                        text-decoration: none
+                        text-decoration: none;
+                        .txtFav {
+                            color: black;
+                        }
+                        &:hover {
+                            background: unset;
+                            text-decoration: underline aqua;
+                        }
                     }
                     hr {
                         clear: both;
                         visibility: hidden;
                     }
-                }
-                &:hover {
-                    background: unset;
                 }
             }
         }
@@ -620,7 +624,7 @@ main {
                 content: url(../assets/Button-Slider-right.svg);
             }
             .next-button:hover {
-                content: url(../assets/Button-Slider-right-hover.svg);
+                content: url(../assets/but);
             }
             .mySlides .trendingImg {
                 height: 275px;
