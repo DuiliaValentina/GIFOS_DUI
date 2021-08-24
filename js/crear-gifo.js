@@ -1,11 +1,29 @@
 var globalStream
 var recorder
 
+var segundo = 0;
+var minutos = 0;
+
+var counter = document.getElementById('counter');
+var timer;
+
+var myGifo;
+
+function contador() {
+    counter.innerText = "00:" + String(minutos).padStart(2, '0') + ":" + String(segundo).padStart(2, '0');
+    segundo += 1;
+
+    if (segundo == 60) {
+        minutos += 1;
+        segundo = 00;
+    }
+}
+
 function creategifo(params) {
     let btnStart = document.getElementById("comenzar");
     let btnRecorder = document.getElementById("grabar");
     let btnEnd = document.getElementById('finalizar');
-    let btnSubmit = document.getElementById('subir')
+    let btnSubmit = document.getElementById('subir');
 
 }
 
@@ -94,8 +112,10 @@ function grabarBtn() {
         },
     });
     recorder.startRecording();
+    timer = setInterval(contador, 1000);
     document.getElementById('grabar').style = "display: none"
     document.getElementById('finalizar').style = "display: block"
+    document.getElementById('counter').style = "visibility:visible";
 }
 
 function finalizarBtn() {
@@ -106,21 +126,31 @@ function finalizarBtn() {
             type: 'gif'
         });
         document.getElementById("video").style = "display:none"
-        var myGifo = document.createElement("img")
+        myGifo = document.createElement("img")
         myGifo.id = "myGifo";
         myGifo.className = "myGifo";
         myGifo.src = window.URL.createObjectURL(gifRecorded);
         myGifo.style = "display:block";
         document.getElementById("contentVideo").appendChild(myGifo);
-
-
         /* let video = document.getElementById('video');
         video.srcObject = null
         video.src = window.URL.createObjectURL(gifRecorded); */
     });
 
+    clearInterval(timer);
+    document.getElementById('counter').style = "visibility:hidden";
+    document.getElementById('repCapture').style = "visibility:visible";
+    document.getElementById('subir').style = "display:block";
+    document.getElementById('finalizar').style = "display:none";
 
 
+}
+
+function repCap() {
+    document.getElementById("myGifo").style = "display:none";
+    document.getElementById("video").style = "display:block";
+    document.getElementById('repCapture').style = "visibility:hidden";
+    grabarBtn();
 }
 
 function sleep(ms) {
