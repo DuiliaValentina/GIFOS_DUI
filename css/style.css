@@ -754,11 +754,11 @@ main .carrusel .slideshow-container .prev-button:hover {
 }
 
 main .carrusel .slideshow-container .next-button {
-  content: url(../assets/button-slider-right.svg);
+  content: url(../assets/Button-Slider-right.svg);
 }
 
 main .carrusel .slideshow-container .next-button:hover {
-  content: url(../assets/button-slider-right-hover.svg);
+  content: url(../assets/Button-Slider-right-hover.svg);
 }
 
 main .carrusel .slideshow-container .mySlides .trendingImg {
